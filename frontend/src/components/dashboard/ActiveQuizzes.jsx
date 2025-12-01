@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { allQuizzes } from "./allQuizes";
 import { ActiveQuizCard } from "../index";
 import axios from "axios";
 
