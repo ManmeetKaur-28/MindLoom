@@ -16,7 +16,6 @@ const answersDataSchema = new mongoose.Schema({
         type: Boolean,
         default: false,
     },
-    //check if it is needed to store question here or not
 });
 const resultSchema = new mongoose.Schema(
     {

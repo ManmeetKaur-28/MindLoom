@@ -27,11 +27,6 @@ app.use("/api/v1/generate-quiz", aiRouter);
 
 app.use("/api/v1/leaderboard", leaderboardRouter);
 
-// temporary testing -----------------
-app.get("/", (req, res, next) => {
-    res.send("hello world");
-});
-
 //http server
 const server = http.createServer(app);
 

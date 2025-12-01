@@ -218,8 +218,6 @@ const getCreatedQuizzes = asyncHandler(async (req, res, next) => {
 });
 
 const getPrevQuizzes = asyncHandler(async (req, res, next) => {
-    //get quizId's from result - quizzes given
-    //for those ids - return details from quiz
     const userId = req.user?._id;
     if (!userId) {
         throw new ApiError(
@@ -254,7 +252,6 @@ const getPrevQuizzes = asyncHandler(async (req, res, next) => {
             };
         })
     );
-    console.log(prevQuizzes);
     return res
         .status(200)
         .json(

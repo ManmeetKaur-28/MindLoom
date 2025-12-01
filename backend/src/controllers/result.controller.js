@@ -26,7 +26,6 @@ const getQuizResult = asyncHandler(async (req, res, next) => {
     const quizResult = await Result.findOne({
         $and: [{ quizId: id }, { userId }],
     });
-    // console.log(quizResult);
     if (!quizResult) {
         throw new ApiError(
             400,
@@ -34,9 +33,7 @@ const getQuizResult = asyncHandler(async (req, res, next) => {
         );
     }
     const allQuestions = quiz.allQuestions;
-    // console.log(allQuestions);
     const answersData = quizResult.answersData;
-    // console.log(answersData);
     const mergedData = allQuestions.map((item) => {
         const answerItem = answersData.find((el) => el.qid === item.qid);
 
@@ -51,9 +48,6 @@ const getQuizResult = asyncHandler(async (req, res, next) => {
             isCorrect: answerItem ? answerItem.isCorrect : false,
         };
     });
-
-    console.log(mergedData);
-    // console.log(answersData);
 
     const responseObj = {
         title: quiz.title,
@@ -102,7 +96,6 @@ const saveQuizResult = asyncHandler(async (req, res, next) => {
             "no quiz with the given id found , to save the result"
         );
     }
-    //rank checking - where to do and how ======
     if (
         score == undefined ||
         totalQuestions == undefined ||

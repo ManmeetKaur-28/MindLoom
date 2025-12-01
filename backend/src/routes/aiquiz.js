@@ -4,7 +4,7 @@ import { ApiResponse } from "../utils/apiResponse.js";
 import { ApiError } from "../utils/apiError.js";
 
 const router = Router();
-//handling hugging face api
+
 const client = new OpenAI({
     baseURL: process.env.HF_URL,
     apiKey: process.env.HF_ACCESS_TOKEN,
@@ -84,11 +84,8 @@ Now generate the quiz strictly following these rules and output only the JSON ar
             model: "meta-llama/Meta-Llama-3-8B-Instruct:novita",
             messages: [{ role: "user", content: prompt }],
             temperature: 0.3,
-            max_tokens: 3000, //check it
+            max_tokens: 3000,
         });
-
-        console.log(completion); //========
-        console.log(typeof completion); //========
 
         const rawOutput = completion.choices[0].message.content.trim();
         const jsonStart = rawOutput.indexOf("[");
@@ -96,14 +93,7 @@ Now generate the quiz strictly following these rules and output only the JSON ar
 
         const jsonString = rawOutput.slice(jsonStart, jsonEnd + 1);
 
-        console.log(jsonString); //======
-        console.log(typeof jsonString); //======
-
         const quizData = await JSON.parse(jsonString);
-
-        console.log("quiz successfully created"); //====
-        console.log(quizData); //====
-        console.log(typeof quizData); //====
 
         return res
             .status(200)

@@ -94,9 +94,6 @@ const addQuiz = asyncHandler(async (req, res, next) => {
 
     await scheduleSaveLeaderboard(quiz._id);
 
-    console.log(quiz.joinCode); //===========
-    // const quizUrl = `${process.env.QUIZ_JOIN_URL}/${quiz.joinCode}`;
-
     return res
         .status(200)
         .json(
@@ -209,9 +206,6 @@ const getAllQuizInfo = asyncHandler(async (req, res, next) => {
             "no quiz with the given id found to access all its information"
         );
     }
-    console.log(quiz);
-    console.log(quiz.createdBy);
-    console.log(userId);
     if (!quiz.createdBy.equals(userId)) {
         throw new ApiError(
             401,

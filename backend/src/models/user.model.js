@@ -49,7 +49,7 @@ userSchema.pre("save", async function (next) {
         this.password = await bcrypt.hash(this.password, 10);
         next();
     }
-}); //cannot use arrow function here because we need access to this i.e. current context
+});
 
 userSchema.methods.isPasswordCorrect = async function (password) {
     return await bcrypt.compare(password, this.password);
