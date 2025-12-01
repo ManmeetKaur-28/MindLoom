@@ -2,7 +2,7 @@ import Input from "./common/Input";
 import Button from "./common/Button";
 import Logo from "./common/Logo";
 import LogoutBtn from "./header/LogoutBtn";
-import Header from "./header/Header";
+import Header from "./header/Header.jsx";
 import Register from "./register/Register";
 import Footer from "./footer/Footer";
 import Login from "./login/Login";
