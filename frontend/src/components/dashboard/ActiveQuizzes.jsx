@@ -26,7 +26,6 @@ function ActiveQuizzes() {
       }
     };
     getActiveQuizzes();
-    setQuizData(allQuizzes);
   }, []);
 
   return (
