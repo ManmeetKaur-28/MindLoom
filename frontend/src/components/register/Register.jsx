@@ -31,7 +31,6 @@ function Register() {
     try {
       const response = await axios.post(`/api/v1/quiz/join/${joinCode}`);
       setRegistered(true);
-      console.log(response);
     } catch (error) {
       if (
         error.response?.data?.message ===

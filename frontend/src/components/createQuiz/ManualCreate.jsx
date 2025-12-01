@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button} from "../index";
+import { Button } from "../index";
 import { Input } from "../index";
 import { useForm, useFormContext } from "react-hook-form";
 function ManualCreate() {
@@ -23,19 +23,7 @@ function ManualCreate() {
     setValue("currQuestion", currQuestion);
     setValue("totalQuestions", questionsCount);
   }, [allQuestions, setValue, currQuestion]);
-  // const [options, setOptions] = useState(["", "", "", ""]);
-  // const [correctAnswer, setCorrectAnswer] = useState("");
 
-  // const handleOptionChange = (index, value) => {
-  //   const newOptions = [...options];
-  //   newOptions[index] = value;
-  //   setOptions(newOptions);
-
-  //   // reset correct answer if it’s no longer in options
-  //   if (!newOptions.includes(correctAnswer)) {
-  //     setCorrectAnswer("");
-  //   }
-  // };
   useEffect(() => {
     register("allQuestions");
     register("currQuestion");
@@ -119,7 +107,6 @@ function ManualCreate() {
     if (currQuestion == 1) setCurrQuestion((prev) => prev + 1);
     else setCurrQuestion((prev) => prev - 1);
   };
-  console.log(getValues());
   return (
     <div>
       <div className="bg-indigo-950/40 p-5 rounded-2xl border border-indigo-800 shadow-sm space-y-3">

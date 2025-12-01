@@ -6,20 +6,20 @@ function AiCreate() {
   const { handleSubmit, register, setValue } = useFormContext();
   const [generate, setGenerate] = useState("Generate");
   const [quizData, setQuizData] = useState([]);
+
   useEffect(() => {
     setValue("allQuestions", quizData);
   }, [quizData]);
+
   const generateAi = async (data, e) => {
     e.preventDefault();
     setQuizData([]);
-    console.log(data); //====
     try {
       setGenerate("Generating.....");
       const response = await axios.post("/api/v1/generate-quiz", data, {
         headers: { "Content-Type": "application/json" },
       });
       setGenerate("Regenerate");
-      console.log(response);
       const createdQuiz = response.data.data;
       setQuizData(createdQuiz);
     } catch (error) {

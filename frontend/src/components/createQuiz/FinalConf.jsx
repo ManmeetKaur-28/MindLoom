@@ -6,35 +6,30 @@ function FinalConf({ isFinal }) {
   const { register, handleSubmit, watch, getValues } = useFormContext();
   const [error, setError] = useState("");
   const [quizUrl, setQuizUrl] = useState("");
+
   const data = watch();
-  console.log(data);
   const ref = useRef();
+
   const copyLink = () => {
     navigator.clipboard.writeText(quizUrl);
     ref.current.select();
   };
-  // const allQuestions = watch("allQuestions");
-  // console.log(allQuestions);
-  // console.log(getValues("allQuestions"));
   useEffect(() => {
     if (isFinal) {
       setError("");
       const getResponse = async () => {
         try {
           const response = await axios.post("/api/v1/quiz/add", data);
-          console.log(response);
           const joinCode = response.data.data;
           setQuizUrl(`${import.meta.env.VITE_HOME_URL}/register/${joinCode}`);
         } catch (error) {
           console.log(error);
-          ///-------------set error
           setError(error.message);
         }
       };
       getResponse();
     }
   }, [isFinal]);
- 
 
   return (
     <div>
