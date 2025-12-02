@@ -21,7 +21,8 @@ function ActiveQuizzes() {
     const getActiveQuizzes = async () => {
       try {
         const response = await axios.get(
-          `${BASE_URL}/api/v1/user/active-quizzes`
+          `${BASE_URL}/api/v1/user/active-quizzes`,
+          { withCredentials: true }
         );
         setQuizData(response.data.data);
       } catch (error) {

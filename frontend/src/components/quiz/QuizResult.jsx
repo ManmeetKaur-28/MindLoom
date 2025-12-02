@@ -13,7 +13,10 @@ function QuizResult() {
     setError("");
     const getQuizResult = async () => {
       try {
-        const response = await axios.get(`${BASE_URL}/api/v1/result/${quizId}`);
+        const response = await axios.get(
+          `${BASE_URL}/api/v1/result/${quizId}`,
+          { withCredentials: true }
+        );
         setQuizInfo(response.data.data);
       } catch (error) {
         setError(error.response?.data?.message || "Unable to fetch results");

@@ -22,7 +22,8 @@ function FinalConf({ isFinal }) {
         try {
           const response = await axios.post(
             `${BASE_URL}/api/v1/quiz/add`,
-            data
+            data,
+            { withCredentials: true }
           );
           const joinCode = response.data.data;
           setQuizUrl(`${import.meta.env.VITE_HOME_URL}/register/${joinCode}`);

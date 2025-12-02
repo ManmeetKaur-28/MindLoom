@@ -11,7 +11,9 @@ function Profile() {
   useEffect(() => {
     const getResponse = async () => {
       try {
-        const response = await axios.get(`${BASE_URL}/api/v1/user`);
+        const response = await axios.get(`${BASE_URL}/api/v1/user`, {
+          withCredentials: true,
+        });
         setUserInfo(response.data.data);
       } catch (error) {
         console.log(error);

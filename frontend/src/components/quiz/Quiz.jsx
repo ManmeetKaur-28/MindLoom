@@ -30,7 +30,9 @@ function Quiz() {
     setError("");
     const getQuestions = async () => {
       try {
-        const response = await axios.get(`${BASE_URL}/api/v1/quiz/${quizId}`);
+        const response = await axios.get(`${BASE_URL}/api/v1/quiz/${quizId}`, {
+          withCredentials: true,
+        });
         setQuizInfo({
           deadline: new Date(response.data.data.deadline),
           title: response.data.data.title,

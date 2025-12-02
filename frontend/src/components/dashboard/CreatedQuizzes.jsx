@@ -10,7 +10,8 @@ function CreatedQuizzes() {
     const getCreatedQuizzes = async () => {
       try {
         const response = await axios.get(
-          `${BASE_URL}/api/v1/user/created-quizzes`
+          `${BASE_URL}/api/v1/user/created-quizzes`,
+          { withCredentials: true }
         );
         setQuizInfo(response.data.data);
       } catch (error) {

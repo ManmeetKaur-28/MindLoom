@@ -13,7 +13,9 @@ function Home() {
   useEffect(() => {
     const checkAuthLogin = async () => {
       try {
-        const res = await axios.get(`${BASE_URL}/api/v1/user/checkLogin`);
+        const res = await axios.get(`${BASE_URL}/api/v1/user/checkLogin`, {
+          withCredentials: true,
+        });
         if (res) {
           dispatch(login());
         } else {

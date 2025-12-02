@@ -11,7 +11,9 @@ function LogoutBtn() {
   const dispatch = useDispatch();
   const logoutSession = async () => {
     try {
-      const response = await axios.get(`${BASE_URL}/api/v1/user/logout`);
+      const response = await axios.get(`${BASE_URL}/api/v1/user/logout`, {
+        withCredentials: true,
+      });
       dispatch(logout());
       navigate("/");
     } catch (error) {

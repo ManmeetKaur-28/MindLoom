@@ -33,7 +33,9 @@ function Register() {
     setError("");
     try {
       const response = await axios.post(
-        `${BASE_URL}/api/v1/quiz/join/${joinCode}`
+        `${BASE_URL}/api/v1/quiz/join/${joinCode}`,
+        {},
+        { withCredentials: true }
       );
       setRegistered(true);
     } catch (error) {

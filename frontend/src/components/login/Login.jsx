@@ -17,6 +17,7 @@ function Login() {
     try {
       const response = await axios.post(`${BASE_URL}/api/v1/user/login`, data, {
         headers: { "Content-Type": "application/json" },
+        withCredentials: true,
       });
       dispatch(login());
       navigate("/profile");
