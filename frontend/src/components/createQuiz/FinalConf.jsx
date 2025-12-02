@@ -20,9 +20,11 @@ function FinalConf({ isFinal }) {
       setError("");
       const getResponse = async () => {
         try {
+          const deadline = new Date(data.deadline);
+          const utcDeadline = deadline.toISOString();
           const response = await axios.post(
             `${BASE_URL}/api/v1/quiz/add`,
-            data,
+            { ...data, deadline: utcDeadline },
             { withCredentials: true }
           );
           const joinCode = response.data.data;
