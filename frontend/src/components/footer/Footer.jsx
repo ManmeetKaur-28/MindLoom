@@ -4,7 +4,7 @@ function Footer() {
   return (
     <footer className="text-white py-3 bg-black ">
       <p className="text-center">
-        &copy; {Date.now().getFullYear()} MindLoom : All rights reserved.
+        &copy; {new Date().getFullYear()} MindLoom : All rights reserved.
       </p>
     </footer>
   );
