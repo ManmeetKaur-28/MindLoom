@@ -78,13 +78,8 @@ function Quiz() {
       remainingTime > 0 &&
       (quizInfo.mode !== "live" || timeUntilStart === 0)
     ) {
-      const start = Date.now();
-      const limitMs = allQuestions[current].time_limit_seconds * 1000;
-
       const interval = setInterval(() => {
-        const elapsed = Date.now() - start;
-        const left = Math.max(Math.floor((limitMs - elapsed) / 1000), 0);
-        setRemainingTime(left);
+        setRemainingTime((prev) => prev - 1);
       }, 1000);
       return () => clearInterval(interval);
     }
