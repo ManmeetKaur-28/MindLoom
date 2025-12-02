@@ -66,12 +66,15 @@ function Quiz() {
           setTimeUntilStart(diffms);
         } else {
           setTimeUntilStart(0);
+          if (allQuestions.length > 0) {
+            setRemainingTime(allQuestions[0].time_limit_seconds);
+          }
           clearInterval(interval);
         }
       }, 1000);
       return () => clearInterval(interval);
     }
-  }, [quizInfo.deadline]);
+  }, [quizInfo.deadline, allQuestions]);
 
   useEffect(() => {
     if (
