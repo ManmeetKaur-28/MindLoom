@@ -96,11 +96,15 @@ function Quiz() {
     if (quizEnded) {
       const saveResult = async () => {
         try {
-          await axios.post(`${BASE_URL}/api/v1/result/${quizId}`, {
-            score,
-            answersData,
-            totalQuestions: quizInfo.totalQuestions,
-          });
+          await axios.post(
+            `${BASE_URL}/api/v1/result/${quizId}`,
+            {
+              score,
+              answersData,
+              totalQuestions: quizInfo.totalQuestions,
+            },
+            { withCredentials: true }
+          );
           dispatch(resetQuiz());
           navigate(`/result/${quizId}`);
         } catch (error) {

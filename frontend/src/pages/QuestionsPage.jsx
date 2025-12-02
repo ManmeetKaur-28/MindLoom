@@ -13,7 +13,8 @@ function QuestionsPage() {
     const getQuizInfo = async () => {
       try {
         const response = await axios.get(
-          `${BASE_URL}/api/v1/quiz/all/${quizId}`
+          `${BASE_URL}/api/v1/quiz/all/${quizId}`,
+          { withCredentials: true }
         );
         setQuizInfo(response.data.data);
       } catch (error) {

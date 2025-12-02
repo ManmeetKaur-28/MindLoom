@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { io } from "socket.io-client";
+import { BASE_URL } from "../../import";
 
 const socket = io(import.meta.env.VITE_BACKEND_URL);
 
@@ -27,7 +28,7 @@ function Leaderboard({ final, limit }) {
     const initialSetup = async () => {
       try {
         await axios.post(
-          `/api/v1/leaderboard/${quizId}/score`,
+          `${BASE_URL}/api/v1/leaderboard/${quizId}/score`,
           { score: 0, limit },
           { withCredentials: true }
         );
@@ -43,7 +44,10 @@ function Leaderboard({ final, limit }) {
   useEffect(() => {
     const getFinalLeaderboard = async () => {
       try {
-        const res = await axios.get(`/api/v1/leaderboard/${quizId}`);
+        const res = await axios.get(
+          `${BASE_URL}/api/v1/leaderboard/${quizId}`,
+          { withCredentials: true }
+        );
         setLeaderboard(res.data.data);
       } catch (error) {
         console.log(error);
@@ -77,7 +81,7 @@ function Leaderboard({ final, limit }) {
         Leaderboard
       </h2>
 
-      {leaderboard.length > 0 ? (
+      {leaderboard && leaderboard.length > 0 ? (
         <ul className="space-y-3">
           {leaderboard.map((item) => (
             <li
