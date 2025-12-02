@@ -66,9 +66,6 @@ function Quiz() {
           setTimeUntilStart(diffms);
         } else {
           setTimeUntilStart(0);
-          if (allQuestions.length > 0) {
-            setRemainingTime(allQuestions[0].time_limit_seconds);
-          }
           clearInterval(interval);
         }
       }, 1000);
@@ -89,7 +86,7 @@ function Quiz() {
   }, [remainingTime, timeUntilStart, quizInfo.mode]);
 
   useEffect(() => {
-    if (allQuestions.length > 0 && remainingTime === 0) {
+    if (allQuestions.length > 0 && remainingTime === 0 && timeUntilStart == 0) {
       dispatch(changeQuestion());
       if (quizInfo.mode === "live") setDisableOptions(false);
     }
