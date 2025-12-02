@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { BASE_URL } from "../../import";
 
 function Signup() {
   const { handleSubmit, register } = useForm();
@@ -13,9 +14,13 @@ function Signup() {
     e.preventDefault();
     setError("");
     try {
-      const response = await axios.post("/api/v1/user/register", data, {
-        headers: { "Content-Type": "application/json" },
-      });
+      const response = await axios.post(
+        `${BASE_URL}/api/v1/user/register`,
+        data,
+        {
+          headers: { "Content-Type": "application/json" },
+        }
+      );
       navigate("/login");
     } catch (error) {
       setError(error.response.data.message);

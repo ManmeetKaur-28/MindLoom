@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { QuizResultCard } from "../index";
 import { useParams } from "react-router-dom";
+import { BASE_URL } from "../../import";
 
 function QuizResult() {
   const [quizInfo, setQuizInfo] = useState({});
@@ -12,7 +13,7 @@ function QuizResult() {
     setError("");
     const getQuizResult = async () => {
       try {
-        const response = await axios.get(`/api/v1/result/${quizId}`);
+        const response = await axios.get(`${BASE_URL}/api/v1/result/${quizId}`);
         setQuizInfo(response.data.data);
       } catch (error) {
         setError(error.response?.data?.message || "Unable to fetch results");

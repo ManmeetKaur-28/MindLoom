@@ -5,6 +5,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { login } from "../../features/authSlice";
 import axios from "axios";
+import { BASE_URL } from "../../import";
 function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -14,7 +15,7 @@ function Login() {
     e.preventDefault();
     setError("");
     try {
-      const response = await axios.post("/api/v1/user/login", data, {
+      const response = await axios.post(`${BASE_URL}/api/v1/user/login`, data, {
         headers: { "Content-Type": "application/json" },
       });
       dispatch(login());

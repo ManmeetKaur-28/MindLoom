@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Button from "../common/Button";
+import { BASE_URL } from "../../import";
 
 function Register() {
   const navigate = useNavigate();
@@ -15,7 +16,9 @@ function Register() {
   useEffect(() => {
     const getQuizPreview = async () => {
       try {
-        const quizPreview = await axios.get(`/api/v1/quiz/preview/${joinCode}`);
+        const quizPreview = await axios.get(
+          `${BASE_URL}/api/v1/quiz/preview/${joinCode}`
+        );
         setQuizInfo(quizPreview.data.data);
       } catch (error) {
         console.log(error);
@@ -29,7 +32,9 @@ function Register() {
   const registerForQuiz = async () => {
     setError("");
     try {
-      const response = await axios.post(`/api/v1/quiz/join/${joinCode}`);
+      const response = await axios.post(
+        `${BASE_URL}/api/v1/quiz/join/${joinCode}`
+      );
       setRegistered(true);
     } catch (error) {
       if (

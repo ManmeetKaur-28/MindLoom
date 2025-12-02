@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { PrevQuizStats } from "../index";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { BASE_URL } from "../../import";
 
 function PrevQuizzes() {
   const [quizData, setQuizData] = useState([]);
@@ -9,7 +10,9 @@ function PrevQuizzes() {
   useEffect(() => {
     const getPrevQuizzes = async () => {
       try {
-        const response = await axios.get("/api/v1/user/prev-quizzes");
+        const response = await axios.get(
+          `${BASE_URL}/api/v1/user/prev-quizzes`
+        );
         setQuizData(response.data.data);
       } catch (error) {
         console.log(error);

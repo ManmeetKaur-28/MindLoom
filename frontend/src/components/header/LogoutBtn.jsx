@@ -5,12 +5,13 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import { useDispatch } from "react-redux";
+import { BASE_URL } from "../../import";
 function LogoutBtn() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const logoutSession = async () => {
     try {
-      const response = await axios.get("/api/v1/user/logout");
+      const response = await axios.get(`${BASE_URL}/api/v1/user/logout`);
       dispatch(logout());
       navigate("/");
     } catch (error) {

@@ -3,6 +3,7 @@ import { CreatedQuizzes } from "../index";
 import axios from "axios";
 import { Button } from "../index";
 import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "../../import";
 
 function Profile() {
   const [userInfo, setUserInfo] = useState({});
@@ -10,7 +11,7 @@ function Profile() {
   useEffect(() => {
     const getResponse = async () => {
       try {
-        const response = await axios.get("/api/v1/user/");
+        const response = await axios.get(`${BASE_URL}/api/v1/user`);
         setUserInfo(response.data.data);
       } catch (error) {
         console.log(error);

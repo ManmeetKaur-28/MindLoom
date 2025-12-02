@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useFormContext } from "react-hook-form";
 import axios from "axios";
+import { BASE_URL } from "../../import";
 
 function FinalConf({ isFinal }) {
   const { register, handleSubmit, watch, getValues } = useFormContext();
@@ -19,7 +20,10 @@ function FinalConf({ isFinal }) {
       setError("");
       const getResponse = async () => {
         try {
-          const response = await axios.post("/api/v1/quiz/add", data);
+          const response = await axios.post(
+            `${BASE_URL}/api/v1/quiz/add`,
+            data
+          );
           const joinCode = response.data.data;
           setQuizUrl(`${import.meta.env.VITE_HOME_URL}/register/${joinCode}`);
         } catch (error) {

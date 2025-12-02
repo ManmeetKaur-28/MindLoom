@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { login, logout } from "../../features/authSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { BASE_URL } from "../../import";
 
 function Home() {
   const navigate = useNavigate();
@@ -12,7 +13,7 @@ function Home() {
   useEffect(() => {
     const checkAuthLogin = async () => {
       try {
-        const res = await axios.get("/api/v1/user/checkLogin");
+        const res = await axios.get(`${BASE_URL}/api/v1/user/checkLogin`);
         if (res) {
           dispatch(login());
         } else {

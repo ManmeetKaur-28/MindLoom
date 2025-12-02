@@ -54,7 +54,7 @@ MindLoom is an interactive quiz application that blends **AI‑driven automation
    ```bash
    npm run dev
    ```
-4. Access the app at "http://localhost:3000"
+4. Access the app at https://mindloom-app.onrender.com
 
 ## 📊 Future Enhancements
 

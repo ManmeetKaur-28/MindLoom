@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { ActiveQuizCard } from "../index";
 import axios from "axios";
+import { BASE_URL } from "../../import";
 
 function ActiveQuizzes() {
   const [quizData, setQuizData] = useState([]);
@@ -19,7 +20,9 @@ function ActiveQuizzes() {
   useEffect(() => {
     const getActiveQuizzes = async () => {
       try {
-        const response = await axios.get("/api/v1/user/active-quizzes");
+        const response = await axios.get(
+          `${BASE_URL}/api/v1/user/active-quizzes`
+        );
         setQuizData(response.data.data);
       } catch (error) {
         console.log(error);

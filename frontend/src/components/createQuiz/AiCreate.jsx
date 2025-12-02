@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Button, Input, AiItem } from "../index";
 import { set, useForm, useFormContext } from "react-hook-form";
 import axios from "axios";
+import { BASE_URL } from "../../import";
 function AiCreate() {
   const { handleSubmit, register, setValue } = useFormContext();
   const [generate, setGenerate] = useState("Generate");
@@ -16,9 +17,13 @@ function AiCreate() {
     setQuizData([]);
     try {
       setGenerate("Generating.....");
-      const response = await axios.post("/api/v1/generate-quiz", data, {
-        headers: { "Content-Type": "application/json" },
-      });
+      const response = await axios.post(
+        `${BASE_URL}/api/v1/generate-quiz`,
+        data,
+        {
+          headers: { "Content-Type": "application/json" },
+        }
+      );
       setGenerate("Regenerate");
       const createdQuiz = response.data.data;
       setQuizData(createdQuiz);

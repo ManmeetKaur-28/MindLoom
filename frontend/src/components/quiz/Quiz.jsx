@@ -9,6 +9,7 @@ import {
   setQuestions,
 } from "../../features/quizSlice.js";
 import axios from "axios";
+import { BASE_URL } from "../../import.js";
 
 function Quiz() {
   const dispatch = useDispatch();
@@ -29,7 +30,7 @@ function Quiz() {
     setError("");
     const getQuestions = async () => {
       try {
-        const response = await axios.get(`/api/v1/quiz/${quizId}`);
+        const response = await axios.get(`${BASE_URL}/api/v1/quiz/${quizId}`);
         setQuizInfo({
           deadline: new Date(response.data.data.deadline),
           title: response.data.data.title,
@@ -93,7 +94,7 @@ function Quiz() {
     if (quizEnded) {
       const saveResult = async () => {
         try {
-          await axios.post(`/api/v1/result/${quizId}`, {
+          await axios.post(`${BASE_URL}/api/v1/result/${quizId}`, {
             score,
             answersData,
             totalQuestions: quizInfo.totalQuestions,
@@ -125,7 +126,7 @@ function Quiz() {
       try {
         const delta = 10;
         await axios.post(
-          `/api/v1/leaderboard/${quizId}/increment`,
+          `${BASE_URL}/api/v1/leaderboard/${quizId}/increment`,
           { delta },
           { withCredentials: true }
         );

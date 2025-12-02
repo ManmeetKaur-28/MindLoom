@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { AiItem } from "../components/index";
 import { useParams } from "react-router-dom";
+import { BASE_URL } from "../import";
 
 function QuestionsPage() {
   const { quizId } = useParams();
@@ -11,7 +12,9 @@ function QuestionsPage() {
   useEffect(() => {
     const getQuizInfo = async () => {
       try {
-        const response = await axios.get(`/api/v1/quiz/all/${quizId}`);
+        const response = await axios.get(
+          `${BASE_URL}/api/v1/quiz/all/${quizId}`
+        );
         setQuizInfo(response.data.data);
       } catch (error) {
         setError(error.response?.data?.message || "Unable to fetch quiz info");
