@@ -56,6 +56,8 @@ MindLoom is an interactive quiz application that blends **AI‑driven automation
    ```
 4. Access the app at https://mindloom-app.onrender.com
 
+---
+
 ## 📊 Future Enhancements
 
 - Enhanced visualization of analytics with **charts** and **graphs**
