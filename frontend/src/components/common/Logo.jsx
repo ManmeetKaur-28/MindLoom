@@ -1,6 +1,6 @@
 import React from "react";
 import logoName from "../../assets/LOGO_Name.png";
-import logoImage from "../../assets/logo_withoutName.png
+import logoImage from "../../assets/logo_withoutName.png"
 function Logo() {
   return (
     <span className="flex mx-auto">
