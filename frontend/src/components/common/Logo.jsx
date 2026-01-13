@@ -1,16 +1,17 @@
 import React from "react";
 import logoName from "../../assets/LOGO_Name.png";
+import logoImage from "../../assets/logo_withoutName.png
 function Logo() {
   return (
     <span className="flex mx-auto">
       <img
         className="h-11 "
-        src="frontend\src\assets\logo_withoutName.png"
+        src={logoImage}
         alt="Logo Image"
       />
       <img
         className="h-8 mt-4"
-        src="frontend\src\assets\LOGO_Name.png"
+        src={logoName}
         alt="MINDLOOM"
       />
     </span>
