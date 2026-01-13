@@ -5,7 +5,7 @@ function Logo() {
     <span className="flex mx-auto">
       <img
         className="h-11 "
-        src="frontend\src\assets\logo_withoutName.png"
+        src="../../assets/logo_withoutName.png"
         alt="Logo Image"
       />
       <img
