@@ -1,5 +1,5 @@
 import { useState } from "react";
-import bgImage from "../src/assets/bgFinal.png";
+import bgImage from "../public/assets/background.png";
 import { Header, Footer } from "./components/index";
 import { Outlet } from "react-router-dom";
 
