@@ -30,6 +30,42 @@ MindLoom is an interactive quiz application that blends **AI‑driven automation
 
 ---
 
+## 👀 WalkThrough
+
+- **Home Page**
+  ![HOME PAGE 1](./preview/home1.png)
+  ![HOME PAGE 2](./preview/home2.png)
+
+- **Profile Page**
+  ![PROFILE PAGE 1](./preview/profile1.png)
+  ![PROFILE PAGE 2](./preview/profile2.png)
+
+- **Create Quiz : AI generate or Manually**
+  ![QUIZ CREATION PAGE 1](./preview/quizcreation1.png)
+  ![QUIZ CREATION PAGE 2](./preview/quizcreation2.png)
+
+![AI GENERATION PAGE 1](./preview/aiquizgenerate1.png)
+![AI GENERATION PAGE 2](./preview/aiquizgenerate2.png)
+![AI GENERATION PAGE 3](./preview/aiquizgenerate3.png)
+
+![SHARE QUIZ PAGE](./preview/sharequiz.png)
+
+- **Register for Quiz**
+  ![REGISTER QUIZ PAGE](./preview/registerquiz.png)
+
+- **Dashboard**
+  ![DASHBOARD PAGE 1](./preview/dashboard.png)
+  ![DASHBOARD PAGE 2](./preview/dashboard2.png)
+
+- **Play Quiz : Live or self paced**
+  ![PLAY QUIZ PAGE](./preview/playquiz.png)
+
+- **Detailed Post Quiz Analysis**
+  ![POST QUIZ RESULT 1](./preview/postquizresult.png)
+  ![POST QUIZ RESULT 2](./preview/postquizresult2.png)
+
+---
+
 ## 🛠️ Tech Stack
 
 - **Frontend:** React, Tailwind CSS
